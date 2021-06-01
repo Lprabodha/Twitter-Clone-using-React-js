@@ -1,14 +1,18 @@
 
 import { firebase } from "../config/firebase-config";
 
-const register = (provider) =>{
+const register = (provider) => {
   return firebase
     .auth()
     .signInWithPopup(provider)
     .then((result) => {
-      console.log(result);
+     
         return result;
     });
 };
 
-export {register};
+const signOut = async () =>  {
+   await  firebase.auth().signOut();
+}
+
+export {register, signOut};

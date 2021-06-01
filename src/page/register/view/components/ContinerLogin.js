@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import { githubAuth, googleAuth } from '../../../../config/firebase-config';
 import { register } from '../../../../service/auth_service';
+import useRegisterUser from '../../hook/useRegisterUser';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -46,9 +47,10 @@ cursor:'pointer',
 
 export default function ContinerLogin () {
   const classes  =useStyles();
+  const registerUser  = useRegisterUser();
   return (
    <div className={classes.continer}>
-        <div className={classes.box} onClick={()=> register(githubAuth)}>
+        <div className={classes.box} onClick={()=> registerUser(githubAuth)}>
           <img src={process.env.PUBLIC_URL + '/assets/github.png'}
            alt="github"
            width="60px"
@@ -61,7 +63,7 @@ export default function ContinerLogin () {
            </div>
          
         </div>
-          <div className={classes.box} onClick={()=> register(googleAuth)}>
+          <div className={classes.box} onClick={()=> registerUser(googleAuth)}>
           <img src={process.env.PUBLIC_URL + '/assets/google.png'}
            alt="github"
            width="60px"

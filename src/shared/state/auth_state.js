@@ -1,7 +1,16 @@
-const authState ={
-    isAuth: false,
+const authState = {
+  isAuth: false,
 };
 
-const authReducer =(state,{type,payload}) =>{};
+const authReducer = (state, { type, payload }) => {
+  switch (type) {
+    case 'UPDATE_AUTH':
+      return {
+        isAuth: payload,
+      };
+    default:
+      throw new Error();
+  }
+};
 
-export {authState,authReducer};
+export { authState, authReducer };
