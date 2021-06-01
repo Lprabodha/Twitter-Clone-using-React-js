@@ -1,37 +1,26 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import Particles from 'react-particles-js';
+import { githubAuth, googleAuth } from '../../../../config/firebase-config';
+import { register } from '../../../../service/auth_service';
 
 const useStyles = makeStyles((theme) => ({
- 
-root:{
-  height:"100vh",
-  
-  display:'flex',
-  justifyContent:'center',
-  alignItems:'center',
 
-
-},
-continer:{
-
-marginRight: theme.spacing(2),
-
-},
-
-text:{
-
- 
-  color:'#fff',
+ text:{
+   color:'#fff',
   fontSize:'1.4rem',
   letterSpacing:'2px',
-
 },
 
 textContiner:{
  flexGrow:'1',
   textAlign:'center',
+},
+
+continer:{
+
+marginRight: theme.spacing(2),
+
 },
 
 box:{
@@ -53,35 +42,13 @@ cursor:'pointer',
   
 },
 
-title:{
-  color:'#fff',
-
-},
-desc:{
-  color:'#fff',
-  fontSize:'1.3rem',
-},
-canvas:{
-  position:'absolute',
-  width:'100%',
-  height:'100%',
-  zIndex:'-1',
-  background:"#16202C",
-
-}
-
-
 }));
 
-export default function  Register() {
+export default function ContinerLogin () {
   const classes  =useStyles();
   return (
-    <div className={classes.root}>
-     
-    <div>
-      <h1 className={classes.title}>Register</h1>
-      <div className={classes.continer}>
-        <div className={classes.box}>
+   <div className={classes.continer}>
+        <div className={classes.box} onClick={()=> register(githubAuth)}>
           <img src={process.env.PUBLIC_URL + '/assets/github.png'}
            alt="github"
            width="60px"
@@ -94,7 +61,7 @@ export default function  Register() {
            </div>
          
         </div>
-          <div className={classes.box}>
+          <div className={classes.box} onClick={()=> register(googleAuth)}>
           <img src={process.env.PUBLIC_URL + '/assets/google.png'}
            alt="github"
            width="60px"
@@ -108,33 +75,5 @@ export default function  Register() {
        
         </div>
       </div>
-      <Typography className={classes.desc}>The most secure and easy authentication</Typography>
-    </div>
-
-<img src={process.env.PUBLIC_URL+ '/assets/creative-team.svg'} alt="" width="500px"/>
-
-<Particles
-className={classes.canvas}
-params={{
-  particles:{
-    number:{
-      value:50,
-    },
-    size:{
-     value:2, 
-    },
-    shape:{
-      type:['circle'],
-    },
-  },
-}
-
-}
-
-/>
-
-
-
-    </div>
   )
 }
