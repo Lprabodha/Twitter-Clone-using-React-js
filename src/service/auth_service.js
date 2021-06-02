@@ -1,7 +1,9 @@
 
 import { firebase } from "../config/firebase-config";
 
-const register = (provider) => {
+class AuthService{
+
+register = (provider) => {
   return firebase
     .auth()
     .signInWithPopup(provider)
@@ -11,8 +13,8 @@ const register = (provider) => {
     });
 };
 
-const signOut = async () =>  {
+  signOut = async () =>  {
    await  firebase.auth().signOut();
-}
-
-export {register, signOut};
+  }
+};
+export default AuthService 

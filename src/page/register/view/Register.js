@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Particles from 'react-particles-js';
 import ContinerLogin from './components/ContinerLogin';
+import content from '../../content/index';
 
 const useStyles = makeStyles((theme) => ({
  
@@ -15,9 +16,6 @@ root:{
 
 
 },
-
-
-
 
 
 
@@ -47,12 +45,12 @@ export default function  Register() {
     <div className={classes.root}>
      
     <div>
-      <h1 className={classes.title}>Register</h1>
+      <h1 className={classes.title}>{content.title}</h1>
       <ContinerLogin/>
-      <Typography className={classes.desc}>The most secure and easy authentication</Typography>
+      <Typography className={classes.desc}>{content.desc}</Typography>
     </div>
 
-<img src={process.env.PUBLIC_URL+ '/assets/creative-team.svg'} alt="" width="500px"/>
+<img src={content.mainImg} alt="" width="500px"/>
 
 <Particles
 className={classes.canvas}

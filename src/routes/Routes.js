@@ -1,6 +1,6 @@
 import React from 'react'
 import {Switch,BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
-import Home from '../page/home/Home/Home';
+import Home from '../page/home/view/Home';
 import Register from '../page/register/view/Register';
 import useAuthProvider from '../shared/hook/useAuthProvider';
 import { authState } from '../shared/state/auth_state';
