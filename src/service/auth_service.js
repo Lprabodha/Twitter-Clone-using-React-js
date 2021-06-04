@@ -3,7 +3,7 @@ import { firebase } from "../config/firebase-config";
 
 class AuthService{
 
-register = (provider) => {
+authenticationUser = (provider) => {
   return firebase
     .auth()
     .signInWithPopup(provider)

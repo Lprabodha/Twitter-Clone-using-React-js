@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 
 import { register } from '../../../../service/auth_service';
-import useRegisterUser from '../../hook/useRegisterUser';
+import useAuthenticationUser from '../../hook/useAuthenticationUser';
 import content from '../../../content/index';
 
 const useStyles = makeStyles((theme) => ({
@@ -46,14 +46,14 @@ cursor:'pointer',
 
 }));
 
-export default function ContinerLogin () {
+export default function ContinerAuth() {
   const classes  =useStyles();
-  const registerUser  = useRegisterUser();
+  const authenticationUser  = useAuthenticationUser();
   return (
    <div className={classes.continer}>
      {content.authMethod.map((auth,index)=>{
        return(
-         <div className={classes.box} onClick={()=> registerUser(auth.method)} key={index}>
+         <div className={classes.box} onClick={()=> authenticationUser(auth.method)} key={index}>
           <img src={auth.img}
            alt="github"
            width="60px"

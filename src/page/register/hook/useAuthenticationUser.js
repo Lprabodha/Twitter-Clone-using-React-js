@@ -2,14 +2,14 @@
 import AuthService from '../../../service/auth_service';
 import useAuthProvider from '../../../shared/hook/useAuthProvider';
 
-const useRegisterUser = () => {
+const useAuthenticationUser = () => {
   const [_, authDispatch] = useAuthProvider();
   const authService  =  new AuthService();
-  const registerUser = async (provider) => {
-    const res = await authService.register(provider);
+  const AuthenticationUser = async (provider) => {
+    const res = await authService.authenticationUser(provider);
     authDispatch({ type: 'UPDATE_AUTH', payload: true });
   };
-  return registerUser;
+  return AuthenticationUser;
 };
 
-export default useRegisterUser;
+export default useAuthenticationUser;

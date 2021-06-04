@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Particles from 'react-particles-js';
-import ContinerLogin from './components/ContinerLogin';
+import ContinerAuth from '../../register/view/components/ContinerAuth';
 import content from '../../content/index';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,14 +39,14 @@ canvas:{
 
 }));
 
-export default function  Register() {
+export default function  Authentication() {
   const classes  =useStyles();
   return (
     <div className={classes.root}>
      
     <div>
       <h1 className={classes.title}>{content.title}</h1>
-      <ContinerLogin/>
+      <ContinerAuth/>
       <Typography className={classes.desc}>{content.desc}</Typography>
     </div>
 

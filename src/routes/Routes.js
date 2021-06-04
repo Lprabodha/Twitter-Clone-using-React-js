@@ -1,7 +1,7 @@
 import React from 'react'
 import {Switch,BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import Home from '../page/home/view/Home';
-import Register from '../page/register/view/Register';
+import Authentication from '../page/register/view/Authentication';
 import useAuthProvider from '../shared/hook/useAuthProvider';
 import { authState } from '../shared/state/auth_state';
 import ProtectedRoute from './Protected.routes';
@@ -19,10 +19,10 @@ export default function Routes() {
               path ="/"
               exact
        
-        render = {()=> !isAuth? <Redirect to="/register"/>: <Redirect to="/home"/> }
+        render = {()=> !isAuth? <Redirect to="/authentication"/>: <Redirect to="/home"/> }
         /> 
             <ProtectedRoute path="/home" component={Home} auth={isAuth}/>
-            <PublicRoute path="/register" component={Register} auth={isAuth}/>
+            <PublicRoute path="/authentication" component={Authentication} auth={isAuth}/>
         </Switch>
     </Router>
 
