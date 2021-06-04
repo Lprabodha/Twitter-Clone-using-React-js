@@ -3,33 +3,32 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import useAlertProvider from '../hook/useAlertProvider';
 
-
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-
-
-export default function CustomSnackbar() {
-
-  const {alertState,alertDispatch} =  useAlertProvider();
+export default function CustomSnackBar() {
+  const { alertState, alertDispatch } = useAlertProvider();
   const open = alertState.isAlert;
+
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-    alertDispatch({type:'CLOSE_ALERT'});
+    alertDispatch({ type: 'CLOSE_ALERT' });
   };
 
   return (
-
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      {!alertState.isError ? (
         <Alert onClose={handleClose} severity="success">
-          This is a success message!
+          {alertState.message}
         </Alert>
-         {/* <Alert severity="error">This is an error message!</Alert> */}
-      </Snackbar>
-     
-     
+      ) : (
+        <Alert severity="error" onClose={handleClose}>
+          This is an error message!
+        </Alert>
+      )}
+    </Snackbar>
   );
 }
